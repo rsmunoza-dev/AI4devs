@@ -1,0 +1,26 @@
+{
+  "inputs": [
+    {
+      "id": "jira_username",
+      "type": "promptString",
+      "description": "rsmunoza@gmail.com"
+    },
+    {
+      "id": "jira_api_token",
+      "type": "promptString",
+      "description": "Jira API token (https://id.atlassian.com/manage-profile/security/api-tokens)",
+      "password": true
+    }
+  ],
+  "servers": {
+    "jira": {
+      "command": "uvx",
+      "args": ["mcp-atlassian"],
+      "env": {
+        "JIRA_URL": "https://rsmunoza.atlassian.net",
+        "JIRA_USERNAME": "${input:jira_username}",
+        "JIRA_API_TOKEN": "${input:jira_api_token}"
+      }
+    }
+  }
+}
